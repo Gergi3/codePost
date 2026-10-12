@@ -80,6 +80,8 @@ services:
       - ${HOST_DATASET_ROOT:-/mnt/datasets}:/assignment_datasets
       - /tmp/codepost-staging:/staging
       - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       database:
         condition: service_healthy
